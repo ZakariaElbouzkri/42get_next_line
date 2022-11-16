@@ -6,7 +6,7 @@
 /*   By: zel-bouz <zel-bouz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/14 09:53:21 by zel-bouz          #+#    #+#             */
-/*   Updated: 2022/11/14 13:33:14 by zel-bouz         ###   ########.fr       */
+/*   Updated: 2022/11/16 19:42:38 by zel-bouz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,7 +89,7 @@ char	*ft_read_from_file(int fd, char *saved)
 char	*get_next_line(int fd)
 {
 	char		*line;
-	static char	*saved[1024];
+	static char	*saved[OPEN_MAX];
 
 	if (fd < 0 || BUFFER_SIZE <= 0)
 		return (0);
@@ -100,20 +100,3 @@ char	*get_next_line(int fd)
 	saved[fd] = ft_get_left_str(saved[fd]);
 	return (line);
 }
-
-// int main()
-// {
-//     int file1 = open("file.txt", O_RDONLY);
-//     int file2 = open("file1.txt", O_RDONLY);
-//     int file3 = open("file2.txt", O_RDONLY);
-//     printf("#####################################\n");
-//     printf("%s", get_next_line(file1));
-//     printf("%s", get_next_line(file2));
-//     printf("%s", get_next_line(file3));
-//     printf("#####################################\n");
-//     printf("%s", get_next_line(file1));
-//     printf("%s", get_next_line(file2));
-//     printf("%s", get_next_line(file3));
-//     printf("#####################################\n");
-
-// }
