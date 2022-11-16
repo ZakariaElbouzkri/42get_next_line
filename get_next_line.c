@@ -6,7 +6,7 @@
 /*   By: zel-bouz <zel-bouz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/14 09:53:21 by zel-bouz          #+#    #+#             */
-/*   Updated: 2022/11/14 11:05:27 by zel-bouz         ###   ########.fr       */
+/*   Updated: 2022/11/16 18:49:51 by zel-bouz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,6 +91,7 @@ char	*get_next_line(int fd)
 	char		*line;
 	static char	*saved;
 
+	printf("%d\n", BUFFER_SIZE);
 	if (fd < 0 || BUFFER_SIZE <= 0)
 		return (0);
 	saved = ft_read_from_file(fd, saved);
@@ -101,14 +102,7 @@ char	*get_next_line(int fd)
 	return (line);
 }
 
-// int main()
-// {
-// 	int 
-// 	line  = get_next_line(fd);
-// 	while (line)
-// 	{
-// 		printf("%s", line);
-// 		line = get_next_line(fd);
-// 	}
-// 	free(line);
-// }
+int	main(void)
+{
+	printf("line :%s", get_next_line(0));
+}
