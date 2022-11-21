@@ -70,7 +70,7 @@ char	*ft_strjoin(char *s1, char *s2)
 	len = ft_strlen(s1) + ft_strlen(s2);
 	joined = malloc((len + 1) * sizeof(char));
 	if (!joined)
-		return (NULL);
+		return (free(s1), s1 = NULL, NULL);
 	i = -1;
 	j = 0;
 	while (s1[++i])
@@ -79,5 +79,6 @@ char	*ft_strjoin(char *s1, char *s2)
 		joined[i++] = s2[j++];
 	joined[len] = '\0';
 	free(s1);
+	s1 = NULL;
 	return (joined);
 }

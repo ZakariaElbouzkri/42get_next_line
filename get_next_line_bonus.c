@@ -52,6 +52,7 @@ char	*ft_get_left_str(char *saved)
 	if (!saved[i])
 	{
 		free(saved);
+		saved = NULL;
 		return (NULL);
 	}
 	left_str = (char *)malloc(sizeof(char) * (ft_strlen(saved) - i + 1));
@@ -62,7 +63,7 @@ char	*ft_get_left_str(char *saved)
 	while (saved[i])
 		left_str[j++] = saved[i++];
 	left_str[j] = '\0';
-	return (free(saved), left_str);
+	return (free(saved), saved = NULL, left_str);
 }
 
 char	*ft_read_from_file(int fd, char *saved)
@@ -78,11 +79,19 @@ char	*ft_read_from_file(int fd, char *saved)
 	{
 		read_bytes = read(fd, buff, BUFFER_SIZE);
 		if (read_bytes == -1)
-			return (free(buff), NULL);
+		{
+			if (saved)
+			{
+				free(saved);
+				saved = NULL;
+			}
+			return (free(buff), buff = NULL, NULL);
+		}
 		buff[read_bytes] = '\0';
 		saved = ft_strjoin(saved, buff);
 	}
 	free(buff);
+	buff = NULL;
 	return (saved);
 }
 
