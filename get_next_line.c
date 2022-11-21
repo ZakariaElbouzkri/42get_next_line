@@ -52,17 +52,18 @@ char	*ft_get_left_str(char *saved)
 	if (!saved[i])
 	{
 		free(saved);
+		saved = NULL;
 		return (NULL);
 	}
 	left_str = (char *)malloc(sizeof(char) * (ft_strlen(saved) - i + 1));
 	if (!left_str)
-		return (NULL);
+		return (free(saved), saved = NULL, NULL);
 	i++;
 	j = 0;
 	while (saved[i])
 		left_str[j++] = saved[i++];
 	left_str[j] = '\0';
-	return (free(saved), left_str);
+	return (free(saved), saved = NULL, left_str);
 }
 
 char	*ft_read_from_file(int fd, char *saved)
@@ -78,11 +79,19 @@ char	*ft_read_from_file(int fd, char *saved)
 	{
 		read_bytes = read(fd, buff, BUFFER_SIZE);
 		if (read_bytes == -1)
-			return (free(buff), NULL);
+		{
+			if (saved)
+			{
+				free(saved);
+				saved = NULL;
+			}
+			return (free(buff), buff = NULL, NULL);
+		}
 		buff[read_bytes] = '\0';
 		saved = ft_strjoin(saved, buff);
 	}
 	free(buff);
+	buff = NULL;
 	return (saved);
 }
 
@@ -91,7 +100,6 @@ char	*get_next_line(int fd)
 	char		*line;
 	static char	*saved;
 
-	printf("%d\n", BUFFER_SIZE);
 	if (fd < 0 || BUFFER_SIZE <= 0)
 		return (0);
 	saved = ft_read_from_file(fd, saved);
@@ -100,9 +108,4 @@ char	*get_next_line(int fd)
 	line = ft_get_line(saved);
 	saved = ft_get_left_str(saved);
 	return (line);
-}
-
-int	main(void)
-{
-	printf("line :%s", get_next_line(0));
 }
