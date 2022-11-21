@@ -7,11 +7,10 @@
 </p>
 
 <p align="center">
-	<img alt="GitHub code size in bytes" src="https://github.com/zel-bouz/133_get_neext_line?color=lightblue" />
-	<img alt="Number of lines of code" src="https://github.com/zel-bouz/133_get_neext_line?color=critical" />
-	<img alt="Code language count" src="https://github.com/zel-bouz/133_get_neext_line?color=yellow" />
-	<img alt="GitHub top language" src="https://github.com/zel-bouz/133_get_neext_line?color=blue" />
-	<img alt="GitHub last commit" src="https://github.com/zel-bouz/133_get_neext_line?color=green" />
+	<img alt="GitHub code size in Kilo bytes" src="https://img.shields.io/github/repo-size/zel-bouz/133_get_neext_line" />
+	<img alt="Number of lines of code" src="https://img.shields.io/tokei/lines/github/zel-bouz/133_get_neext_line" />
+	<img alt="Code language count" src="https://img.shields.io/github/languages/top/zel-bouz/133_get_neext_line" />
+	<img alt="GitHub top language" src="https://img.shields.io/github/languages/top/surfi89/get_next_line?color=blue" />
 </p>
 
 <h3 align="center">
