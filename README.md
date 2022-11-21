@@ -10,7 +10,6 @@
 	<img alt="GitHub code size in Kilo bytes" src="https://img.shields.io/github/repo-size/zel-bouz/133_get_neext_line" />
 	<img alt="Number of lines of code" src="https://img.shields.io/tokei/lines/github/zel-bouz/133_get_neext_line" />
 	<img alt="Code language count" src="https://img.shields.io/github/languages/top/zel-bouz/133_get_neext_line" />
-	<img alt="GitHub top language" src="https://img.shields.io/github/languages/top/surfi89/get_next_line?color=blue" />
 </p>
 
 <h3 align="center">
